@@ -1,8 +1,20 @@
 import { evaluate } from "mathjs"
-
+const preprocessAndEvaluate = (expression) => {
+    // A regex pattern to match trigonometric functions with degree values
+    const trigFunctionPattern = /(sin|cos|tan)\((\d+)\)/g;
+  
+    // Replace degree values in trigonometric functions with their radian equivalents
+    const processedExpression = expression.replace(trigFunctionPattern, (match, func, degrees) => {
+      const radians = degrees * (Math.PI / 180);
+      return `${func}(${radians})`;
+    });
+  
+    return evaluate(processedExpression);
+  }
 const initialState ={
     input_data : '',
-    output_data:''
+    output_data:'',
+    isShift: false
 }
 const calculatorReducer =(state=initialState,action)=>{
 switch (action.type) {
@@ -16,12 +28,17 @@ switch (action.type) {
        return {
         ...state, input_data: state.input_data+ action.payload
        }
+    case 'shift':
+        // alert(action.payload)
+       return {
+        ...state, isShift: !state.isShift
+       }
 
        case '=':
         // alert(evaluate(state.input_data))
         try{
             return{
-                ...state, output_data: evaluate(state.input_data)
+                ...state, output_data: preprocessAndEvaluate(state.input_data)
              }
         }
         catch{
@@ -36,7 +53,7 @@ switch (action.type) {
             }
         case 'clear':
             return{
-                ...state,input_data: ''
+                ...state,input_data: '', 
             }
 
     default:

@@ -10,6 +10,12 @@ export const functionPress= (data)=>{
         payload: data
     }
 }
+export const isShift= ()=>{
+    return {
+        type: 'shift',
+      
+    }
+}
 
 export const equalTo= ()=>{
     return {
