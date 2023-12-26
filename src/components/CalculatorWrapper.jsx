@@ -11,7 +11,7 @@ state=> state.output_data
     )
     const dispatch = useDispatch()
     return (
-        <div className='calculator mx-auto w-[400px] m-4 p-6 rounded-xl border-gray-800'>
+        <div className='calculator mx-auto w-[400px] m-4 p-6 rounded-md border-2 border-slate-800'>
             <div style={{backgroundColor: '#576E68'}} className='bg-slate-[#576E68] text-white px-4 py-4 rounded-md mb-4'>{input_dt}</div>
             <div style={{backgroundColor: '#576E68'}} className='bg-slate-[#576E68] text-white px-4 py-4 rounded-md mb-4'>{output_dt}</div>
             <div className='grid grid-cols-5 gap-4'>
@@ -61,6 +61,26 @@ state=> state.output_data
                 </div>
                 <div onClick={()=>dispatch(buttonPress('%'))} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
                     %
+                </div>
+                {/* 4th row starts  */}
+                <div onClick={()=>dispatch(buttonPress('log('))} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
+                    Log
+                </div>
+                <div onClick={()=>dispatch(buttonPress('tan('))} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
+                    tan
+                </div>
+                <div onClick={()=>dispatch(buttonPress('sin('))} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
+                    sin
+                </div>
+                <div onClick={()=>dispatch(buttonPress('cos('))} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
+                    cos
+                </div>
+                <div onClick={()=>dispatch(buttonPress('cot('))} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
+                    cot
+                </div>
+                {/* 5th row strats  */}
+                <div onClick={()=>dispatch(buttonPress(')'))} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
+                    )
                 </div>
                 <div onClick={()=>dispatch(ac())} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
                     AC

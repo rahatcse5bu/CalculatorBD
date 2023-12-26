@@ -4,6 +4,13 @@ export const buttonPress= (data)=>{
         payload: data
     }
 }
+export const functionPress= (data)=>{
+    return {
+        type: 'function_press',
+        payload: data
+    }
+}
+
 export const equalTo= ()=>{
     return {
         type: '=',
