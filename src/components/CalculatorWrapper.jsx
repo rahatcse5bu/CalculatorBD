@@ -88,6 +88,9 @@ state=> state.output_data
                 <div onClick={()=>dispatch(clear())} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
                     Clear
                 </div>
+                <div onClick={()=>dispatch(buttonPress(output_dt))} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
+                    Ans
+                </div>
                 <div onClick={()=>dispatch(equalTo())} className='bg-slate-900 text-white font-semibold px-4 py-2 rounded-lg'>
                     =
                 </div>
